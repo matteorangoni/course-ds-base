@@ -40,6 +40,8 @@ def train_model(config_path: Text) -> None:
     models_path = config['train']['model_path']
     joblib.dump(model, models_path)
 
+    print("Update train.py stage")
+
 
 if __name__ == '__main__':
 

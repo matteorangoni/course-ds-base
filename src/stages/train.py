@@ -7,6 +7,9 @@ import yaml
 from src.train.train import train
 from src.utils.logs import get_logger
 
+'''
+REUSABLE CODE
+'''
 
 def train_model(config_path: Text) -> None:
     """Train model.
@@ -24,10 +27,11 @@ def train_model(config_path: Text) -> None:
     logger.info(f'Estimator: {estimator_name}')
 
     logger.info('Load train dataset')
+    #stage specific feature
     train_df = pd.read_csv(config['data_split']['trainset_path'])
 
     logger.info('Train model')
-    model = train(
+    model = train( #altro codice
         df=train_df,
         target_column=config['featurize']['target_column'],
         estimator_name=estimator_name,

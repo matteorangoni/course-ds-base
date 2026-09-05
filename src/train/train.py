@@ -48,7 +48,7 @@ def train(df: pd.DataFrame, target_column: Text,
 
     estimator = estimators[estimator_name]()
     f1_scorer = make_scorer(f1_score, average='weighted')
-    clf = GridSearchCV(estimator=estimator,
+    clf = GridSearchCV(estimator=estimator, #anche questo si può portare in un altro codice
                        param_grid=param_grid,
                        cv=cv,
                        verbose=1,

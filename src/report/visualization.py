@@ -1,6 +1,8 @@
 import itertools
+
 import matplotlib.pyplot as plt
-import numpy as np 
+import numpy as np
+
 
 def plot_confusion_matrix(cm,
                           target_names,
@@ -33,15 +35,18 @@ def plot_confusion_matrix(cm,
                           normalize    = True,                # show proportions
                           target_names = y_labels_vals,       # list of names of the classes
                           title        = best_estimator_name) # title of graph
+
     Citiation
     ---------
     http://scikit-learn.org/stable/auto_examples/model_selection/plot_confusion_matrix.html
+
     """
+
     accuracy = np.trace(cm) / float(np.sum(cm))
     misclass = 1 - accuracy
 
     if cmap is None:
-      cmap = plt.get_cmap('Blues')
+        cmap = plt.get_cmap('Blues')
 
     plt.figure(figsize=(8, 6))
     plt.imshow(cm, interpolation='nearest', cmap=cmap)
@@ -58,11 +63,11 @@ def plot_confusion_matrix(cm,
 
     thresh = cm.max() / 1.5 if normalize else cm.max() / 2
     for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
-      if normalize:
+        if normalize:
             plt.text(j, i, "{:0.4f}".format(cm[i, j]),
                      horizontalalignment="center",
                      color="white" if cm[i, j] > thresh else "black")
-      else:
+        else:
             plt.text(j, i, "{:,}".format(cm[i, j]),
                      horizontalalignment="center",
                      color="white" if cm[i, j] > thresh else "black")

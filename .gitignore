@@ -18,3 +18,4 @@ __pycache__
 dvc-venv
 /file.txt
 /datadir
+/file2.txt

@@ -91,9 +91,9 @@ stages:
             logreg:
               param_grid:
                 C:
-                - 0.01
+                - 0.02
                 max_iter:
-                - 100
+                - 1
                 solver:
                 - lbfgs
                 multi_class:
@@ -114,7 +114,7 @@ stages:
           model_path: models/model.joblib
     outs:
     - path: models/model.joblib
-      md5: 8071891e6375456269cd6aa77cc775a9
+      md5: 4dcf2dafe651d3eec7f6b70223ba5c31
       size: 2669
   evaluate:
     cmd: python src/stages/evaluate.py --config=params.yaml
@@ -123,7 +123,7 @@ stages:
       md5: b5e45593a772fc66629488e1806505c4
       size: 1492
     - path: models/model.joblib
-      md5: 8071891e6375456269cd6aa77cc775a9
+      md5: 4dcf2dafe651d3eec7f6b70223ba5c31
       size: 2669
     - path: src/stages/evaluate.py
       md5: e845a44aa40bffa0b20b08a7d854e999
@@ -141,8 +141,8 @@ stages:
         featurize.target_column: target
     outs:
     - path: reports/confusion_matrix.png
-      md5: 64609d4d2fe8d2718531f253d881dde6
-      size: 24999
+      md5: a9481375c3e325c86cab519a832711af
+      size: 24899
     - path: reports/metrics.json
-      md5: d533847a0ca14ca93752b1b1f1df349e
+      md5: c929d2ce3e56989e1a86a23906d34c1b
       size: 32
